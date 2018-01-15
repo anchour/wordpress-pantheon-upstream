@@ -23,7 +23,7 @@
     "optimize-autoloader": true,
     "sort-packages": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.1"
     }
   },
   "extra": {
@@ -34,7 +34,7 @@
     }
   },
   "scripts": {
-    "post-install-cmd": [
+    "build-assets": [
       "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress",
       "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress -d wp-content/themes/anchour"
     ]
