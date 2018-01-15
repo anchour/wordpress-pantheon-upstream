@@ -1,0 +1,42 @@
+{
+  "name": "pantheon-systems/example-wordpress-composer",
+  "description": "",
+  "type": "project",
+  "keywords": [],
+  "minimum-stability": "alpha",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "pantheon-systems/quicksilver-pushback": "^1.0",
+    "pantheon-systems/wordpress-composer": "^4.8.2",
+    "roots/wp-password-bcrypt": "^1.0.0",
+    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.1.4",
+    "wpackagist-plugin/wp-native-php-sessions": "^0.6.0"
+  },
+  "config": {
+    "vendor-dir": "vendor",
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "7.0"
+    }
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wp-content/themes/{$name}/": ["type:wordpress-theme"],
+      "private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+    }
+  },
+  "scripts": {
+    "build-assets": [
+      "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress",
+      "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress -d wp-content/themes/anchour"
+    ]
+  }
+}
